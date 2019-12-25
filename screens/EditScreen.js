@@ -26,6 +26,6 @@ export default class EditScreen extends React.Component {
   }
 }
 
-HomeScreen.navigationOptions = {
+EditScreen.navigationOptions = {
   header: null,
 };

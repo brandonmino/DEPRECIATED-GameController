@@ -1,19 +1,22 @@
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
-import MainTabNavigator from './MainTabNavigator';
-import HomeScreen from '../screens/EditScreen';
+import HomeScreen from '../screens/HomeScreen';
 import CreateScreen from '../screens/CreateScreen';
 import EditScreen from '../screens/EditScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import { useScreens } from 'react-native-screens';
+import UseScreen from '../screens/UseScreen';
 
 export default createAppContainer(
-  createSwitchNavigator({
-    Main: MainTabNavigator,
-    Home: HomeScreen,
-    Use: UseScreen,
-    Create: CreateScreen,
-    Edit: EditScreen,
-    Settings: SettingsScreen,
-  })
+  createSwitchNavigator(
+    {
+      Home: HomeScreen,
+      Use: UseScreen,
+      Create: CreateScreen,
+      Edit: EditScreen,
+      Settings: SettingsScreen,
+    },
+    {
+      initialRouteName: 'Home',
+    }
+  )
 );

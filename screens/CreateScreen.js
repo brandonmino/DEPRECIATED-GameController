@@ -33,6 +33,6 @@ export default class CreateScreen extends React.Component {
   }
 }
 
-HomeScreen.navigationOptions = {
+CreateScreen.navigationOptions = {
   header: null,
 };

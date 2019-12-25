@@ -26,7 +26,7 @@ export default class SettingsScreen extends React.Component {
   }
 }
 
-HomeScreen.navigationOptions = {
+SettingsScreen.navigationOptions = {
   header: null,
 };
 

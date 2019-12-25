@@ -26,6 +26,6 @@ export default class UseScreen extends React.Component {
   }
 }
 
-HomeScreen.navigationOptions = {
+UseScreen.navigationOptions = {
   header: null,
 };
