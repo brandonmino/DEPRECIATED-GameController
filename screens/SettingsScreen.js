@@ -1,14 +1,32 @@
 import React from 'react';
-import { ExpoConfigView } from '@expo/samples';
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 
-export default function SettingsScreen() {
-  /**
-   * Go ahead and delete ExpoConfigView and replace it with your content;
-   * we just wanted to give you a quick view of your config.
-   */
-  return <ExpoConfigView />;
+import styles from './StylesScreen'
+import { MonoText } from '../components/StyledText';
+
+export default class SettingsScreen extends React.Component {
+  render() { 
+    return (
+      <View style={styles.homeContainer}>
+        <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.optionsContainer}>
+            <Text style={styles.homeTitle}>Welcome to GameController!</Text>
+
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Use')} style={styles.homeLink}>
+              <View
+                style={styles.homeOptions}>
+                <MonoText>Setting Options</MonoText>
+              </View>
+            </TouchableOpacity>
+            
+          </View>
+        </ScrollView>
+      </View>
+    );
+  }
 }
 
-SettingsScreen.navigationOptions = {
-  title: 'app.json',
+HomeScreen.navigationOptions = {
+  header: null,
 };
+
