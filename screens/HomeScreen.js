@@ -9,9 +9,16 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.homeContainer}>
         <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.profileContainer}>
+          <View style={styles.optionsContainer}>
             <Text style={styles.homeTitle}>Welcome to GameController!</Text>
 
+            <TouchableOpacity onPress={() => this.props.navigation.navigate('Use')} style={styles.homeLink}>
+              <View
+                style={styles.homeOptions}>
+                <MonoText>Use a Controller</MonoText>
+              </View>
+            </TouchableOpacity>
+            
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Create')} style={styles.homeLink}>
               <View
                 style={styles.homeOptions}>

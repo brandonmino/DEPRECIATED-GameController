@@ -5,7 +5,7 @@ export default StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
-    profileContainer: {
+    optionsContainer: {
         alignContent: 'center',
     },
     homeContainer: {
