@@ -7,13 +7,18 @@ import EditScreen from '../screens/EditScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import UseScreen from '../screens/UseScreen';
 
-const switchNavigator = createSwitchNavigator({
-  Home: HomeScreen,
-  Create: CreateScreen,
-  Use: UseScreen,
-  Edit: EditScreen,
-  Settings: SettingsScreen,
-});
+const switchNavigator = createSwitchNavigator(
+  {
+    Home: HomeScreen,
+    Use: UseScreen,
+    Create: CreateScreen,
+    Edit: EditScreen,
+    Settings: SettingsScreen,
+  },
+  {
+    initialRouteName: 'Home',
+  }
+);
 switchNavigator.path = '';
 
 export default createBrowserApp(switchNavigator, { history: 'hash' });

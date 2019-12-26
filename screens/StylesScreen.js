@@ -33,4 +33,18 @@ export default StyleSheet.create({
     navigationFilename: {
         marginTop: 5,
     },
+    backContainer: {
+        paddingTop: 30,
+    },
+    backButton: {
+        alignSelf: 'flex-start',
+        alignItems: 'left',
+        justifyContent: 'center',
+        backgroundColor: 'grey',
+        borderRadius: 10,
+        marginLeft: 20,
+        marginTop: 10,
+        padding: 5,
+        flex: 1,
+    },
 });

@@ -9,8 +9,14 @@ export default class SettingsScreen extends React.Component {
     return (
       <View style={styles.homeContainer}>
         <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
+          <View style={styles.backContainer}>
+            <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.navigate('Home')}>
+            <MonoText> Back </MonoText>
+            </TouchableOpacity>
+          </View>  
+          
+          <Text style={styles.homeTitle}>Welcome to GameController!</Text>
           <View style={styles.optionsContainer}>
-            <Text style={styles.homeTitle}>Welcome to GameController!</Text>
 
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Use')} style={styles.homeLink}>
               <View

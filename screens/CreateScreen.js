@@ -9,9 +9,15 @@ export default class CreateScreen extends React.Component {
     return (
       <View style={styles.homeContainer}>
         <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.optionsContainer}>
-            <Text style={styles.homeTitle}>Choose a Component</Text>
+          <View style={styles.backContainer}>
+            <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.navigate('Home')}>
+            <MonoText> Back </MonoText>
+            </TouchableOpacity>
+          </View>  
 
+          <Text style={styles.homeTitle}>Choose a Component</Text>
+          <View style={styles.optionsContainer}>
+            
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Use')} style={styles.homeLink}>
               <View
                 style={styles.homeOptions}>
