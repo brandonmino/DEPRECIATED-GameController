@@ -1,8 +1,6 @@
 import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-
 import styles from './StylesScreen'
-import { MonoText } from '../components/StyledText';
 
 export default class CreateScreen extends React.Component {
   render() { 
@@ -11,27 +9,8 @@ export default class CreateScreen extends React.Component {
         <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
           <View style={styles.backContainer}>
             <TouchableOpacity style={styles.backButton} onPress={() => this.props.navigation.navigate('Home')}>
-            <MonoText> Back </MonoText>
+            <Text> Back </Text>
             </TouchableOpacity>
-          </View>  
-
-          <Text style={styles.homeTitle}>Choose a Component</Text>
-          <View style={styles.optionsContainer}>
-            
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Use')} style={styles.homeLink}>
-              <View
-                style={styles.homeOptions}>
-                <MonoText>Joystick</MonoText>
-              </View>
-            </TouchableOpacity>
-            
-            <TouchableOpacity onPress={() => this.props.navigation.navigate('Create')} style={styles.homeLink}>
-              <View
-                style={styles.homeOptions}>
-                <MonoText>Button</MonoText>
-              </View>
-            </TouchableOpacity>
-
           </View>
         </ScrollView>
       </View>

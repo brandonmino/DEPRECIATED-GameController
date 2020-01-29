@@ -5,12 +5,12 @@ import HomeScreen from '../screens/HomeScreen';
 import CreateScreen from '../screens/CreateScreen';
 import EditScreen from '../screens/EditScreen';
 import SettingsScreen from '../screens/SettingsScreen';
-import UseScreen from '../screens/UseScreen';
+import PlayScreen from '../screens/PlayScreen';
 
 const switchNavigator = createSwitchNavigator(
   {
     Home: HomeScreen,
-    Use: UseScreen,
+    Play: PlayScreen,
     Create: CreateScreen,
     Edit: EditScreen,
     Settings: SettingsScreen,

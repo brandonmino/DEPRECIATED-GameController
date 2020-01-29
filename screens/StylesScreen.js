@@ -5,11 +5,6 @@ export default StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
-    optionsContainer: {
-        alignContent: 'center',
-        justifyContent: "center",
-        paddingTop: 150,
-    },
     homeContainer: {
         flex: 1,
         backgroundColor: '#fff',
@@ -20,7 +15,7 @@ export default StyleSheet.create({
         paddingTop: 100,
     },
     homeOptions: {
-        fontFamily: 'space-mono', 
+        fontFamily: 'Georgia', 
         alignItems: 'center',
         marginVertical: 5,
         backgroundColor: 'rgba(0,0,0,0.05)',
@@ -38,13 +33,29 @@ export default StyleSheet.create({
     },
     backButton: {
         alignSelf: 'flex-start',
-        alignItems: 'left',
+        alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: 'grey',
+        backgroundColor: '#DCDCDC',
         borderRadius: 10,
         marginLeft: 20,
         marginTop: 10,
         padding: 5,
         flex: 1,
+    },
+    settingsHomeContainer: {
+        paddingBottom: 100,
+    },
+    settingsButton: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#DCDCDC',
+        borderRadius: 10,
+        marginRight: 20,
+        marginBottom: 10,
+        padding: 5,
+        flex: 1,
+        position: "absolute", 
+        bottom: 0,
     },
 });
