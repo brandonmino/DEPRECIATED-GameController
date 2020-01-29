@@ -1,6 +1,6 @@
 import React from 'react';
-import {ScrollView, Image, Text, TouchableOpacity, View} from 'react-native';
-import styles from './StylesScreen'
+import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
+import styles from '../StylesScreen'
 
 export default class HomeScreen extends React.Component {
   render() { 
@@ -18,7 +18,3 @@ export default class HomeScreen extends React.Component {
     );
   }
 }
-
-HomeScreen.navigationOptions = {
-  header: null,
-};

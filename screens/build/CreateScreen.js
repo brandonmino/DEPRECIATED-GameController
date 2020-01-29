@@ -1,6 +1,6 @@
 import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import styles from './StylesScreen'
+import styles from '../StylesScreen'
 
 export default class CreateScreen extends React.Component {
   render() { 
@@ -18,6 +18,3 @@ export default class CreateScreen extends React.Component {
   }
 }
 
-CreateScreen.navigationOptions = {
-  header: null,
-};

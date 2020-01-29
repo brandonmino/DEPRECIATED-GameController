@@ -1,7 +1,6 @@
 import {StyleSheet} from 'react-native'
 
-export default StyleSheet.create({
-
+const stylescreen = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
@@ -59,3 +58,5 @@ export default StyleSheet.create({
         bottom: 0,
     },
 });
+
+export default stylescreen;
