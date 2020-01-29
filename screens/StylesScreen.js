@@ -1,12 +1,8 @@
 import {StyleSheet} from 'react-native'
 
-export default StyleSheet.create({
-
+const stylescreen = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
-    },
-    optionsContainer: {
-        alignContent: 'center',
     },
     homeContainer: {
         flex: 1,
@@ -15,12 +11,12 @@ export default StyleSheet.create({
     homeTitle: {
         fontSize: 28,
         textAlign: 'center',
-        paddingBottom: 30,
+        paddingTop: 100,
     },
     homeOptions: {
-        fontFamily: 'space-mono', 
+        fontFamily: 'Georgia', 
         alignItems: 'center',
-        marginVertical: 1,
+        marginVertical: 5,
         backgroundColor: 'rgba(0,0,0,0.05)',
         borderRadius: 3,
         paddingHorizontal: 4,
@@ -28,40 +24,39 @@ export default StyleSheet.create({
     homeLink: {
         paddingVertical: 7,
     },
-    codeHighlightText: {
-        color: 'rgba(96,100,109, 0.8)',
-    },
-    codeHighlightContainer: {
-        backgroundColor: 'rgba(0,0,0,0.05)',
-        borderRadius: 3,
-        paddingHorizontal: 4,
-    },
-    tabBarInfoContainer: {
-        position: 'absolute',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        ...Platform.select({
-            ios: {
-                shadowColor: 'black',
-                shadowOffset: { width: 0, height: -3 },
-                shadowOpacity: 0.1,
-                shadowRadius: 3,
-            },
-            android: {
-                elevation: 20,
-            },
-        }),
-        alignItems: 'center',
-        backgroundColor: '#fbfbfb',
-        paddingVertical: 20,
-    },
-    tabBarInfoText: {
-        fontSize: 17,
-        color: 'rgba(96,100,109, 1)',
-        textAlign: 'center',
-    },
     navigationFilename: {
         marginTop: 5,
     },
+    backContainer: {
+        paddingTop: 30,
+    },
+    backButton: {
+        alignSelf: 'flex-start',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#DCDCDC',
+        borderRadius: 10,
+        marginLeft: 20,
+        marginTop: 10,
+        padding: 5,
+        flex: 1,
+    },
+    settingsHomeContainer: {
+        paddingBottom: 100,
+    },
+    settingsButton: {
+        alignSelf: 'center',
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#DCDCDC',
+        borderRadius: 10,
+        marginRight: 20,
+        marginBottom: 10,
+        padding: 5,
+        flex: 1,
+        position: "absolute", 
+        bottom: 0,
+    },
 });
+
+export default stylescreen;
