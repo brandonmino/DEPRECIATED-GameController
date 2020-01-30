@@ -4,4 +4,4 @@ const stylesettings = StyleSheet.create({
 
 });
 
-export default stylesettings;
+export { stylesettings };

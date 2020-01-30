@@ -4,4 +4,4 @@ const styleplay = StyleSheet.create({
 
 });
 
-export default styleplay;
+export { styleplay };

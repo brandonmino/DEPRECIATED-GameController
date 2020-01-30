@@ -1,15 +1,16 @@
 import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import styles from '../StylesScreen'
+import { styleglobal } from '../StylesScreen'
+import { stylehome } from './StylesHome'
 
 export default class HomeScreen extends React.Component {
   render() { 
     return (
-      <View style={styles.homeContainer}>
-        <ScrollView style={styles.homeContainer} contentContainerStyle={styles.contentContainer}>
-          <Text style={styles.homeTitle}>Welcome to GameController!</Text>
-          <View style={styles.settingsHomeContainer}>
-            <TouchableOpacity style={styles.settingsButton} onPress={() => this.props.navigation.navigate('Settings')}>
+      <View style={styleglobal.homeContainer}>
+        <ScrollView style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
+          <Text style={styleglobal.homeTitle}>Welcome to GameController!</Text>
+          <View style={styleglobal.settingsHomeContainer}>
+            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Settings')}>
             <Text>Settings</Text>
             </TouchableOpacity>
           </View>
