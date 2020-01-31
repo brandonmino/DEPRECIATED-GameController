@@ -13,6 +13,16 @@ export default class CreateScreen extends React.Component {
             <Text>Back</Text>
             </TouchableOpacity>
           </View>
+          <View style={styleglobal.settingsHomeContainer}>
+            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Connect')}>
+            <Text>Play</Text>
+            </TouchableOpacity>
+          </View>
+          <View style={styleglobal.settingsHomeContainer}>
+            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Edit')}>
+            <Text>Edit</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );

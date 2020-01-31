@@ -13,6 +13,7 @@ export default class CreateScreen extends React.Component {
             <Text>Back</Text>
             </TouchableOpacity>
           </View>
+          <Text style={styleglobal.homeTitle}>This is the settings page!</Text>
         </ScrollView>
       </View>
     );
