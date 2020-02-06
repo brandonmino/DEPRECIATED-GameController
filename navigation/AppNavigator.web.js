@@ -1,11 +1,11 @@
 import { createBrowserApp } from '@react-navigation/web';
 import { createSwitchNavigator } from 'react-navigation';
 import HomeScreen from '../screens/home/HomeScreen';
-import UseScreen from '../screens/play/UseScreen';
-import ConnectScreen from '../screens/play/ConnectScreen';
+import UseScreen from '../screens/use/UseScreen';
+import ConnectScreen from '../screens/connect/ConnectScreen';
 import PlayScreen from '../screens/play/PlayScreen';
-import CreateScreen from '../screens/build/CreateScreen';
-import EditScreen from '../screens/build/EditScreen';
+import CreateScreen from '../screens/create/CreateScreen';
+import EditScreen from '../screens/edit/EditScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 
 const switchNavigator = createSwitchNavigator(

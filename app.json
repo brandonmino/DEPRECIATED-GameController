@@ -10,7 +10,7 @@
       "web"
     ],
     "version": "1.0.0",
-    "orientation": "portrait",
+    "orientation": "landscape",
     "icon": "./images/icon.png",
     "splash": {
       "image": "./images/splash.png",
