@@ -9,7 +9,7 @@ export default class CreateScreen extends React.Component {
       <View style={styleglobal.homeContainer}>
         <ScrollView style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
           <View style={styleglobal.backContainer}>
-            <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Use')}>
+            <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
             <Text>Back</Text>
             </TouchableOpacity>
           </View>
