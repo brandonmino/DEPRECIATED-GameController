@@ -1,8 +1,7 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, View, Button} from 'react-native';
+import {Text, TouchableOpacity, View} from 'react-native';
 import { styleglobal } from '../StylesScreen';
 import { styleplay, dragPosition} from './StylesPlay';
-import Draggable from 'react-native-draggable';
 import { Ourbutton } from '../../components/button';
 
 const overflow={
@@ -25,7 +24,7 @@ export default class CreateScreen extends React.Component {
           <Ourbutton {...dragPosition.AD} btnname="AD" style={[styleplay.arrowButton, styleplay.AD]}/>
 
           <View style={styleglobal.backContainer}>
-            <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Use')}>
+            <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
               <Text>Back</Text>
             </TouchableOpacity>
           </View>
