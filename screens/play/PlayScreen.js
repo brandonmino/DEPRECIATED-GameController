@@ -1,34 +1,28 @@
 import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View, Button} from 'react-native';
-import { styleglobal } from '../StylesScreen'
-import { styleplay, dragPosition} from './StylesPlay'
+import { styleglobal } from '../StylesScreen';
+import { styleplay, dragPosition} from './StylesPlay';
 import Draggable from 'react-native-draggable';
-
+import { Ourbutton } from '../../components/button';
 
 const overflow={
   overflowY: 'hidden',
   overflowX: 'hidden',
 };
 
-function basicPress(event) {
-  console.log("Hell yeah!");
-  
-}
-
 export default class CreateScreen extends React.Component {
   render() { 
     return (
       <View style={[styleglobal.homeContainer, overflow]}>
         <View style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
-
-          <Draggable {...dragPosition.CL} disabled={true}><TouchableOpacity style={[styleplay.colorButton, styleplay.CL]} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.CR} disabled={true}><TouchableOpacity style={[styleplay.colorButton, styleplay.CR]} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.CU} disabled={true}><TouchableOpacity style={[styleplay.colorButton, styleplay.CU]} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.CD} disabled={true}><TouchableOpacity style={[styleplay.colorButton, styleplay.CD]} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.AL} disabled={true}><TouchableOpacity style={styleplay.arrowButton} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.AR} disabled={true}><TouchableOpacity style={styleplay.arrowButton} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.AU} disabled={true}><TouchableOpacity style={styleplay.arrowButton} onPress={basicPress}/></Draggable>
-          <Draggable {...dragPosition.AD} disabled={true}><TouchableOpacity style={styleplay.arrowButton} onPress={basicPress}/></Draggable>
+          <Ourbutton {...dragPosition.CL} btnname="CL" style={[styleplay.colorButton, styleplay.CL]}/>
+          <Ourbutton {...dragPosition.CR} btnname="CR" style={[styleplay.colorButton, styleplay.CR]}/>
+          <Ourbutton {...dragPosition.CU} btnname="CU" style={[styleplay.colorButton, styleplay.CU]}/>
+          <Ourbutton {...dragPosition.CD} btnname="CD" style={[styleplay.colorButton, styleplay.CD]}/>
+          <Ourbutton {...dragPosition.AL} btnname="AL" style={[styleplay.arrowButton, styleplay.AL]}/>
+          <Ourbutton {...dragPosition.AR} btnname="AR" style={[styleplay.arrowButton, styleplay.AR]}/>
+          <Ourbutton {...dragPosition.AU} btnname="AU" style={[styleplay.arrowButton, styleplay.AU]}/>
+          <Ourbutton {...dragPosition.AD} btnname="AD" style={[styleplay.arrowButton, styleplay.AD]}/>
 
           <View style={styleglobal.backContainer}>
             <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Use')}>
