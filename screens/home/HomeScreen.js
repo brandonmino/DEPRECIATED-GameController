@@ -2,6 +2,7 @@ import React from 'react';
 import {Image, FlatList, ScrollView, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 import { styleglobal } from '../StylesScreen'
 import { stylehome } from './StylesHome'
+import { styleplay } from '../play/StylesPlay';
 
 const ControllerList = [
   {
@@ -25,7 +26,7 @@ export default class HomeScreen extends React.Component {
   render() { 
     return (
       <View style={styleglobal.homeContainer}>
-        <ScrollView style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
+        <View style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
           <Text style={styleglobal.homeTitle}>Welcome to GameController!</Text>
           <FlatList
             data={ControllerList}
@@ -34,26 +35,22 @@ export default class HomeScreen extends React.Component {
               <View style={stylehome.listTextCon}>
                 <Text style={stylehome.listText} onPress={() => this.props.navigation.navigate('Connect')}>{item.title}</Text>
               </View>
-              <View style={stylehome.settingLogoCon}>
-                <TouchableHighlight style={stylehome.settingClickLogo} onPress={() => this.props.navigation.navigate('Edit')}>
-                  <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>
-                </TouchableHighlight>
-              </View>    
+              <TouchableHighlight style={stylehome.settingLogoCon} onPress={() => this.props.navigation.navigate('Edit')}>
+                <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>
+              </TouchableHighlight>
             </View>
             )}
             keyExtractor={item => item.id}
           />
-          <View style={styleglobal.settingsHomeContainer}>
-            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Create')}>
-            <Text>Create</Text>
+          <View style={stylehome.bottomButtonCon}>
+            <TouchableOpacity style={stylehome.createButton} onPress={() => this.props.navigation.navigate('Create')}>
+              <Text>Create</Text>
+            </TouchableOpacity>
+            <TouchableOpacity style={stylehome.settingsButton} onPress={() => this.props.navigation.navigate('Settings')}>
+              <Text>Settings</Text>
             </TouchableOpacity>
           </View>
-          <View style={styleglobal.settingsHomeContainer}>
-            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Settings')}>
-            <Text>Settings</Text>
-            </TouchableOpacity>
-          </View>
-        </ScrollView>
+        </View>
       </View>
     );
   }

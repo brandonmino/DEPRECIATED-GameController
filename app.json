@@ -11,9 +11,9 @@
     ],
     "version": "1.0.0",
     "orientation": "landscape",
-    "icon": "./images/icon.png",
+    "icon": "./images/Controller-logo.png",
     "splash": {
-      "image": "./images/splash.png",
+      "image": "./images/splashnew.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

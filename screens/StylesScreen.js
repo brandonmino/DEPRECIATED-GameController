@@ -1,17 +1,18 @@
 import {StyleSheet} from 'react-native'
+import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 const styleglobal = StyleSheet.create({
     contentContainer: {
         paddingTop: 30,
     },
     homeContainer: {
-        flex: 1,
         backgroundColor: '#fff',
     },
     homeTitle: {
         fontSize: 28,
         textAlign: 'center',
-        paddingTop: 100,
+        paddingTop: vh(15),
+        paddingBottom: vh(5),
     },
     homeOptions: {
         fontFamily: 'Georgia', 
@@ -39,7 +40,6 @@ const styleglobal = StyleSheet.create({
         marginLeft: 20,
         marginTop: 10,
         padding: 5,
-        flex: 1,
     },
     settingsHomeContainer: {
         paddingBottom: 100,

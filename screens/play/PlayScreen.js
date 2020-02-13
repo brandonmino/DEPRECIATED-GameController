@@ -12,8 +12,8 @@ const overflow={
 export default class CreateScreen extends React.Component {
   render() { 
     return (
-      <View style={[styleglobal.homeContainer, overflow]}>
-        <View style={styleglobal.homeContainer} contentContainerStyle={styleglobal.contentContainer}>
+      <View style={[styleplay.playContainer, overflow]}>
+        <View style={styleplay.playContainer} contentContainerStyle={styleglobal.contentContainer}>
           <Ourbutton {...dragPosition.CL} btnname="CL" style={[styleplay.colorButton, styleplay.CL]}/>
           <Ourbutton {...dragPosition.CR} btnname="CR" style={[styleplay.colorButton, styleplay.CR]}/>
           <Ourbutton {...dragPosition.CU} btnname="CU" style={[styleplay.colorButton, styleplay.CU]}/>
