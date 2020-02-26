@@ -1,10 +1,12 @@
-{
-    "CL" : false,
-    "CR" : false,
-    "CU" : false,
-    "CD" : false,
-    "AL" : false,
-    "AR" : false,
-    "AU" : false,
-    "AD" : false
-}
+[
+    {
+        "CL" : false,
+        "CR" : false,
+        "CU" : false,
+        "CD" : false,
+        "AL" : false,
+        "AR" : false,
+        "AU" : false,
+        "AD" : false
+    }
+]
