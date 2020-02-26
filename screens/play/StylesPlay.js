@@ -2,6 +2,10 @@ import {StyleSheet} from 'react-native'
 import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
 
 const styleplay = StyleSheet.create({
+    playContainer: {
+        flex: 1,
+        backgroundColor: '#fff',
+    },
     colorButton: {
         backgroundColor: 'pink', //Just a placeholder, should never be visible
         width: vw(10),

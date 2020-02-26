@@ -2,6 +2,7 @@ import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import { styleglobal } from '../StylesScreen'
 import { styleedit } from './StylesEdit'
+import { GCbutton } from '../../components/button';
 
 export default class CreateScreen extends React.Component {
   render() { 

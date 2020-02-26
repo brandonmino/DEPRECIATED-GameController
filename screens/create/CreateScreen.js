@@ -1,7 +1,8 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import { styleglobal } from '../StylesScreen'
+import {ScrollView, Text, TouchableOpacity, View, Button} from 'react-native';
+import { styleglobal } from '../StylesScreen';
 import { stylecreate } from './StylesCreate'
+import createButton from '../../components/initbutton';
 
 export default class CreateScreen extends React.Component {
   render() { 
@@ -14,6 +15,7 @@ export default class CreateScreen extends React.Component {
             </TouchableOpacity>
           </View>
           <Text style={styleglobal.homeTitle}>This is the create screen!</Text>
+          <Button onPress={() => {createButton("Button A", "Button", "A")}}> Tap this for a new button</Button>
         </ScrollView>
       </View>
     );
