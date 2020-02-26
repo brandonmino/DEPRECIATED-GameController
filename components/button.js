@@ -13,7 +13,7 @@ export class GCbutton extends React.Component{
         let obj = {};
         obj[name] = this.state.status;
         console.log(obj);
-        fetch("http://137.99.162.1:8080/", {
+        fetch("http://50.28.161.59:6969/", {
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),
@@ -25,7 +25,7 @@ export class GCbutton extends React.Component{
         let obj = {};
         obj[name] = this.state.status;
         console.log(obj);
-        fetch("http://137.99.162.1:8080/", {
+        fetch("http://50.28.161.59:6969/", {
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),
