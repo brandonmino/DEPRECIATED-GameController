@@ -1,7 +1,8 @@
+import React from 'react';
 import { GCbutton } from "./button"
 
 export let createButton = (name, type, descriptor) => {
-    if (type == "button" || type == "dpad" || type == "jstick"){
+    if (type == "Button" || type == "dpad" || type == "jstick"){
         console.log("descriptor recognized");
         return(
             <GCbutton/>
