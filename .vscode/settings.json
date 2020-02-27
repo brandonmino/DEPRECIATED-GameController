@@ -1,4 +1,6 @@
 {
+<<<<<<< HEAD
+=======
     "workbench.colorCustomizations": {
         "activityBar.background": "#1accff",
         "activityBar.activeBorder": "#df00ad",
@@ -15,4 +17,5 @@
         "statusBar.foreground": "#15202b"
     },
     "peacock.color": "#00b3e6"
+>>>>>>> frontend
 }
