@@ -1,8 +1,20 @@
 import React from 'react';
 import {ScrollView, Text, TouchableOpacity, View, Button} from 'react-native';
 import { styleglobal } from '../StylesScreen';
-import { stylecreate } from './StylesCreate'
-import { createButton } from '../../components/initbutton';
+import { stylecreate } from './StylesCreate';
+import { GCbutton } from '../../components/button';
+
+let createButton = (name, type, descriptor) => {
+  if (type == "Button" || type == "dpad" || type == "jstick"){
+      console.log("descriptor recognized");
+      return(
+          <GCbutton/>
+        )
+  }
+  else{
+      console.log("The descriptor was not defined correctly");
+  }
+}
 
 export default class CreateScreen extends React.Component {
   render() { 

@@ -33,7 +33,7 @@ export default class HomeScreen extends React.Component {
             renderItem={({item}) => (
             <View style={stylehome.listStyle}>
               <View style={stylehome.listTextCon}>
-                <Text style={stylehome.listText} onPress={() => this.props.navigation.navigate('Play')}>{item.title}</Text>
+                <Text style={stylehome.listText} onPress={() => this.props.navigation.navigate('Connect')}>{item.title}</Text>
               </View>
               <TouchableHighlight style={stylehome.settingLogoCon} onPress={() => this.props.navigation.navigate('Edit')}>
                 <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>

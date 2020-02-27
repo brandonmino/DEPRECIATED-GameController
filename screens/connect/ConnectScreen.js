@@ -4,17 +4,22 @@ import { styleglobal } from '../StylesScreen'
 import { styleconnect } from './StylesConnect'
 
 
-async function connectText() {
-  while (True) {
+function connectText() {
+  let count = 0;
+  while (true) {
     try {
-      const response = await fetch('http://137.99.162.1:8080');
-      const answer = await response.text();
+      const response = fetch('http://137.99.162.1:8080/init_connect');
+      const answer = response.text();
       console.log(answer);
-      console.log("connection successful.");
+      console.log("Connection successful.");
       this.props.navigation.navigate('Play');
       break;
     } catch (e) {
       console.log("Oh no! Failed to connect.");
+      count++;
+      if (count == 10){
+        break;
+      }
     }
   }
 }
