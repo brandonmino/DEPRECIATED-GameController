@@ -5,8 +5,7 @@ import Draggable from 'react-native-draggable';
 export class GCbutton extends React.Component{
     constructor (props) {
         super(props);
-        this.toggleDrag = this.toggleDrag.bind(this);
-        this.state = {status: true, disabled: true};
+        this.state = {status: true};
     }
 
     basicPressIn(name) {
@@ -32,17 +31,14 @@ export class GCbutton extends React.Component{
             body: JSON.stringify(obj),
         });
     };
-
-    toggleDrag(bool) {
-        this.setState({disabled: bool});
-        console.log(name);
-        console.log(this.state);
-    };
   
     render(){
         return(
-            <Draggable x={this.props.x} y={this.props.y} disabled={this.state.disabled}>
-                <TouchableOpacity style={this.props.style} onPressIn={() => {this.basicPressIn(this.props.btnname)}} onPressOut={() => {this.basicPressOut(this.props.btnname)}}/>
+            <Draggable x={this.props.x} y={this.props.y} disabled={!this.props.drag}>
+                <TouchableOpacity activeOpacity={this.props.drag ? 1 : 0.2}
+                                  style={this.props.style}
+                                  onPressIn={() => {this.props.drag ? {} : this.basicPressIn(this.props.btnname)}}
+                                  onPressOut={() => {this.props.drag ? {} : this.basicPressOut(this.props.btnname)}}/>
             </Draggable>
         )
     }

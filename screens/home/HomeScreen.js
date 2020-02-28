@@ -2,7 +2,6 @@ import React from 'react';
 import {Image, FlatList, ScrollView, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 import { styleglobal } from '../StylesScreen'
 import { stylehome } from './StylesHome'
-import { styleplay } from '../play/StylesPlay';
 
 const ControllerList = [
   {
@@ -35,7 +34,7 @@ export default class HomeScreen extends React.Component {
               <View style={stylehome.listTextCon}>
                 <Text style={stylehome.listText} onPress={() => this.props.navigation.navigate('Connect')}>{item.title}</Text>
               </View>
-              <TouchableHighlight style={stylehome.settingLogoCon} onPress={() => this.props.navigation.navigate('Edit')}>
+              <TouchableHighlight style={stylehome.settingLogoCon} onPress={() => this.props.navigation.navigate('Controller')}>
                 <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>
               </TouchableHighlight>
             </View>
