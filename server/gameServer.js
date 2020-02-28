@@ -1,17 +1,13 @@
 const express = require('express')
-const bodyParser = require('body-parser')
 const app = express()
-app.use(bodyParser.text())
 const robot = require("robotjs");
 
 //Port and address for connecting and sending/receiving
 const port = 3000
-const address = '50.28.150.90'
+app.use(express.text());
 
 //Receive POST requests for an initial connection from controller to server
 app.post('/init_connect', function (req, res) {
-  let body_data = JSON.parse(req.body)
-
   //Body with have the controller config it in
   //Handle the controller config here
 
@@ -22,23 +18,22 @@ app.post('/init_connect', function (req, res) {
 //Receive POST requests for buttons from RN front end
 app.post('/data_endpoint', function (req, res) {
   let body_data = JSON.parse(req.body)
-  let key = Object.keys(body_data)
-
-  if (body_data[key] == true){
-    robot.keyToggle(key[0], 'down')
-    console.log(key[0] + " Button Pressed")
-    res.send(key[0] + " Button Pressed")
+  
+  if (body_data[state] == true){
+    robot.keyToggle(body_data[key], 'down')
+    console.log(body_data[key] + " Button Pressed")
+    res.send(body_data[key] + " Button Pressed")
   }
-  else if (body_data[key] == false){
-    robot.keyToggle(key[0], 'up')
-    console.log(key[0] + " Button Released")
-    res.send(key[0] + " Button Released")
+  else if (body_data[state] == false){
+    robot.keyToggle(body_data[key], 'up')
+    console.log(body_data[key] + " Button Released")
+    res.send(body_data[key] + " Button Released")
   }
   else{
-    console.log("Given status not valid")
-    res.send("Given status not valid")
+    console.log("Given state not valid")
+    res.send("Given state not valid")
   }
 })
 
-//Listen in on port at that address
+//Listen in on port
 app.listen(port, () => console.log(`App listening on port ${port}!`))     

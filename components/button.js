@@ -11,10 +11,15 @@ export class GCbutton extends React.Component{
 
     basicPressIn(name) {
         this.setState({status: false});
-        let obj = {};
-        obj[name] = this.state.status;
+        let obj = {
+            key : name,
+            state : this.state.status
+        };
         console.log(obj);
-        fetch("http://50.28.150.90:3000/data_endpoint", {
+        fetch("http://50.28.188.58:3000/data_endpoint", {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'},
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),
@@ -23,10 +28,16 @@ export class GCbutton extends React.Component{
 
     basicPressOut(name) {
         this.setState({status: true});
-        let obj = {};
-        obj[name] = this.state.status;
+        let obj = {
+            key : name,
+            state : this.state.status
+        };
+        //obj[name] = this.state.status;
         console.log(obj);
-        fetch("http://50.28.150.90:3000/data_endpoint", {
+        fetch("http://50.28.188.58:3000/data_endpoint", {
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'},
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),
