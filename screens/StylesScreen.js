@@ -1,5 +1,5 @@
 import {StyleSheet} from 'react-native'
-import { vw, vh, vmin, vmax } from 'react-native-expo-viewport-units';
+import { vh } from 'react-native-expo-viewport-units';
 
 const styleglobal = StyleSheet.create({
     contentContainer: {

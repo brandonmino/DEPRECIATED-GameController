@@ -1,12 +1,5 @@
-{/*
 import React from 'react';
-import {Linking, ScrollView, Text, TouchableOpacity, View} from 'react-native';
-import { styleglobal } from '../StylesScreen';
-import { styleconnect } from './StylesConnect';
-*/}
-
-import React, { useState, useEffect } from 'react';
-import { Alert, Text, View, StyleSheet, Button } from 'react-native';
+import { Alert, View, StyleSheet } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default class ConnectScreen extends React.Component {
@@ -34,6 +27,7 @@ export default class ConnectScreen extends React.Component {
     };
   }
 
+  //Try to connect using qr code address (url)
   async setupConnection(url) {
     try{
       let response = await fetch(url);

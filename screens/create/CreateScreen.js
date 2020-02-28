@@ -1,5 +1,5 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, View, Button, TextInput} from 'react-native';
+import { ScrollView, Text, TouchableOpacity, View, TextInput } from 'react-native';
 import { styleglobal } from '../StylesScreen';
 import { stylecreate } from './StylesCreate';
 
@@ -8,7 +8,6 @@ export default class CreateScreen extends React.Component {
     super(props);
     this.state = {text: ''};
   }
-
 
   render() { 
     return (

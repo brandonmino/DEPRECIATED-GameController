@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, Text, TouchableOpacity, View} from 'react-native';
+import { Text, TouchableOpacity, View } from 'react-native';
 import { styleglobal } from '../StylesScreen';
 import { styleplay, dragPosition} from '../play/StylesPlay';
 import { GCbutton } from '../../components/button';

@@ -1,8 +1,8 @@
 import React from 'react';
-import {Image, FlatList, ScrollView, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
+import { Image, FlatList, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
 import { styleglobal } from '../StylesScreen'
 import { stylehome } from './StylesHome'
-import { styleplay } from '../play/StylesPlay';
+import { stylehome } from '../play/StylesHome';
 
 const ControllerList = [
   {

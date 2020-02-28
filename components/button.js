@@ -32,7 +32,6 @@ export class GCbutton extends React.Component{
             key : name,
             state : this.state.status
         };
-        //obj[name] = this.state.status;
         console.log(obj);
         fetch("http://50.28.188.58:3000/data_endpoint", {
             headers: {
