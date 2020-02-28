@@ -1,22 +1,15 @@
 import React from 'react';
-import {ScrollView, Text, TouchableOpacity, View, Button} from 'react-native';
+import {ScrollView, Text, TouchableOpacity, View, Button, TextInput} from 'react-native';
 import { styleglobal } from '../StylesScreen';
 import { stylecreate } from './StylesCreate';
-import { GCbutton } from '../../components/button';
-
-let createButton = (name, type, descriptor) => {
-  if (type == "Button" || type == "dpad" || type == "jstick"){
-      console.log("descriptor recognized");
-      return(
-          <GCbutton/>
-        )
-  }
-  else{
-      console.log("The descriptor was not defined correctly");
-  }
-}
 
 export default class CreateScreen extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {text: ''};
+  }
+
+
   render() { 
     return (
       <View style={styleglobal.homeContainer}>
@@ -26,8 +19,19 @@ export default class CreateScreen extends React.Component {
             <Text>Back</Text>
             </TouchableOpacity>
           </View>
-          <Text style={styleglobal.homeTitle}>This is the create screen!</Text>
-          <Button onPress={() => {createButton("ButtonA", "Button", "A")}}> Tap this for a new button</Button>
+          <View>
+            <Text style={styleglobal.homeTitle}>Name your controller</Text>
+            <TextInput
+              style={stylecreate.textinput}
+              placeholder="Name your controller here!"
+              onChangeText={(text) => this.setState({text})}
+              value={this.state.text}
+            />
+            <TouchableOpacity style={stylecreate.enterbtn} onPress={() => this.props.navigation.navigate('Edit')}>
+              {/* make sure to add conditional to see if the name is nonempty and valid */}
+              <Text>Start editing!</Text>
+            </TouchableOpacity>
+          </View>
         </ScrollView>
       </View>
     );

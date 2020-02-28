@@ -41,4 +41,4 @@ app.post('/data_endpoint', function (req, res) {
 })
 
 //Listen in on port at that address
-app.listen(port, address => console.log(`App listening on port ${port}!`))     
+app.listen(port, () => console.log(`App listening on port ${port}!`))     

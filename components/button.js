@@ -5,15 +5,16 @@ import Draggable from 'react-native-draggable';
 export class GCbutton extends React.Component{
     constructor (props) {
         super(props);
-        this.state = {status: false, disabled: true};
+        this.toggleDrag = this.toggleDrag.bind(this);
+        this.state = {status: true, disabled: true};
     }
 
     basicPressIn(name) {
-        this.setState({status: true});
+        this.setState({status: false});
         let obj = {};
         obj[name] = this.state.status;
         console.log(obj);
-        fetch("http://50.28.161.59:6969/data_endpoint", {
+        fetch("http://50.28.150.90:3000/data_endpoint", {
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),
@@ -21,11 +22,11 @@ export class GCbutton extends React.Component{
     };
 
     basicPressOut(name) {
-        this.setState({status: false});
+        this.setState({status: true});
         let obj = {};
         obj[name] = this.state.status;
         console.log(obj);
-        fetch("http://50.28.161.59:6969/data_endpoint", {
+        fetch("http://50.28.150.90:3000/data_endpoint", {
             method: 'POST',
             mode: 'no-cors',
             body: JSON.stringify(obj),

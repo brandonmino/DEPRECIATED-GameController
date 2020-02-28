@@ -8,27 +8,26 @@ function connectText() {
   let count = 0;
   while (true) {
     try {
-      const response = fetch('http://137.99.162.1:8080/init_connect');
-      const answer = response.text();
-      console.log(answer);
+      let obj = {};
+      obj[status] = "Controller 'ID' is trying to connect";
+      fetch("http://50.28.150.90:3000/init_connect", {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(obj),
+        });
       console.log("Connection successful.");
-      this.props.navigation.navigate('Play');
-      break;
+      break;      
     } catch (e) {
-      console.log("Oh no! Failed to connect.");
-      count++;
-      if (count == 10){
-        break;
+        console.log("Oh no! Failed to connect.");
       }
-    }
   }
 }
-
-
 
 export default class ConnectScreen extends React.Component {
   componentDidMount () {
     connectText();
+    this.props.navigation.navigate('Play');
+
   };
   render() { 
     return (
