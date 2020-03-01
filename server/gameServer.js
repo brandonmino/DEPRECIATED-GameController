@@ -2,14 +2,15 @@ const express = require('express')
 const app = express()
 const robot = require("robotjs");
 const QRCode = require("qrcode");
-const ip = require("ip");
+const os = require('os');
 
+const networkInterfaces = os.networkInterfaces();
 app.use(express.text());
 
 //Port and address for connecting and sending/receiving
-const serverIP = ip.address()
+const IP = networkInterfaces['Wi-Fi'][0].address
 const port = 3000
-let address = "http://" + serverIP.toString() + ":" + port.toString() + "/init_connect"
+let address = "http://" + IP.toString() + ":" + port.toString() + "/init_connect"
 
 QRCode.toString(address, {type:'terminal'}, function (err, url) {
   console.log(`Connected at ${url}`)
