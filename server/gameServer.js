@@ -8,12 +8,12 @@ const networkInterfaces = os.networkInterfaces();
 app.use(express.text());
 
 //Port and address for connecting and sending/receiving
-const IP = networkInterfaces['Wi-Fi'][0].address
+const addr = networkInterfaces['Wi-Fi'][0].address
 const port = 3000
-let address = "http://" + IP.toString() + ":" + port.toString() + "/init_connect"
+let address = "http://" + addr.toString() + ":" + port.toString()
 
 QRCode.toString(address, {type:'terminal'}, function (err, url) {
-  console.log(`Connected at ${url}`)
+  console.log(url)
 })
 
 //Receive POST requests for an initial connection from controller to server
@@ -31,16 +31,15 @@ app.post('/init_connect', function (req, res) {
 //Receive POST requests for buttons from RN front end
 app.post('/data_endpoint', function (req, res) {
   let body_data = JSON.parse(req.body)
-  
-  if (body_data[state] == true){
-    robot.keyToggle(body_data[key], 'down')
-    //console.log(body_data[key] + " Button Pressed")
-    res.send(body_data[key] + " Button Pressed")
+  if (body_data.state == true){
+    robot.keyToggle(body_data.key, 'down')
+    console.log(body_data.key + " Button Pressed")
+    res.send(body_data.key + " Button Pressed")
   }
-  else if (body_data[state] == false){
-    robot.keyToggle(body_data[key], 'up')
-    //console.log(body_data[key] + " Button Released")
-    res.send(body_data[key] + " Button Released")
+  else if (body_data.state == false){
+    robot.keyToggle(body_data.key, 'up')
+    console.log(body_data.key + " Button Released")
+    res.send(body_data.key + " Button Released")
   }
   else{
     console.log("Given state not valid")

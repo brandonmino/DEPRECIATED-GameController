@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, View, StyleSheet } from 'react-native';
+import { Alert, AsyncStorage, View, StyleSheet } from 'react-native';
 import { BarCodeScanner } from 'expo-barcode-scanner';
 
 export default class ConnectScreen extends React.Component {
@@ -29,13 +29,15 @@ export default class ConnectScreen extends React.Component {
 
   //Try to connect using qr code address (url)
   async setupConnection(url) {
-    let obj = {status : "Connection attempt"}
+    let ip = {'ip': url}
+    AsyncStorage.setItem('ip', JSON.stringify(ip));
+    let sts = {status : "Connection attempt"}
     let settings = {
       method: 'POST',
       mode: 'no-cors',
-      body: JSON.stringify(obj)
+      body: JSON.stringify(sts)
     }
-    let request = await fetch("http://137.99.207.220:3000/init_connect", settings)
+    let request = await fetch(url + '/init_connect', settings)
     let response = await request.json()
     if (response.status == "Connected"){
       console.log("You have successfully connected")
