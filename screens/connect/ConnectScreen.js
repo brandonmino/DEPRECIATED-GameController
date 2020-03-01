@@ -29,10 +29,42 @@ export default class ConnectScreen extends React.Component {
 
   //Try to connect using qr code address (url)
   async setupConnection(url) {
+    let obj = {status : "Connection attempt"}
+    let settings = {
+      method: 'POST',
+      mode: 'no-cors',
+      body: JSON.stringify(obj)
+    }
+    let request = await fetch("http://137.99.207.220:3000/init_connect", settings)
+    let response = await request.json()
+    if (response.status == "Connected"){
+      console.log("You have successfully connected")
+      this.props.navigation.navigate('Play')
+    }
+    else{
+      console.log("Connection attempt failed. Try again")
+    }
+
+    /*
     try{
-      let response = await fetch(url);
-      let responseJson = await response.json();
-      if (responseJson.status == "Connected") {
+      let obj = {
+        status : "Connection attempt"
+      }
+      let settings = {
+        method: 'POST',
+        mode: 'no-cors',
+        body: JSON.stringify(obj),
+      }
+      console.log(url)
+      let response = fetch(url, settings).then(response => {
+        setTimeout(() => null, 0);
+        return response.json();
+    })
+    .then(async response => {
+        console.log(response);
+    });
+      console.log(response)
+      if (response.status == "Connected") {
         console.log(`Connected to ${url}`)
         this.props.navigation.navigate('Play')
       }
@@ -41,7 +73,9 @@ export default class ConnectScreen extends React.Component {
       }
     } catch(err) {
       console.log(err);
+      throw err;
     }
+    */
   }
 
   //Data is the address being sent over
@@ -50,9 +84,9 @@ export default class ConnectScreen extends React.Component {
       this.setState({setScanned: true, screenOpen: true});
       Alert.alert(
         'You have connected to a server!',
-        `You have connected to the follow ip: ${ data } \n Please confirm this address matches the one displayed on the server.`,
+        `You have connected to the follow ip: ${ type.data } \n Please confirm this address matches the one displayed on the server.`,
         [
-          {text: 'Play on server', onPress: () => this.setupConnection(data)},
+          {text: 'Play on server', onPress: () => this.setupConnection(type.data)},
           {
             text: 'Rescan',
             onPress: () => this.setState({screenOpen: false}),
