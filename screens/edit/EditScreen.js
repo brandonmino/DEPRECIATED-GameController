@@ -13,42 +13,34 @@ export default class CreateScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this._handleAddButton = this._handleAddButton.bind(this);
-
-    this.state = {    /* initial your state. without any added component */
-      data: []
-    }
+    this.AddButton = this.AddButton.bind(this);
+    this.state = {components: []}
   }
 
-  _handleAddButton() {
-    let newly_added_data = {style: [styleplay.colorButton, styleplay.CL]};
-
-    this.setState({
-      data: [...this.state.data, newly_added_data]
-    });
+  AddButton() {
+    let new_component = {moveable: false, style: [styleplay.colorButton, styleplay.CL]};
+    this.setState({components: [...this.state.components, new_component]});
   }
+
   render() {
-    let added_buttons_goes_here = this.state.data.map((data, index) => {
+    let added_buttons = this.state.components.map((data, index) => {
       return (
-        <GCbutton key={index} style={data.style}/>
+        <GCbutton key={index} tog={false} playing={false} moveable={data.moveable} style={data.style}/>
       )
     });
-    for (let button of added_buttons_goes_here) {
-      button.toggleDrag(false);
-    }
+
     return (
       <View style={[styleplay.playContainer, overflow]}>
         <View style={styleplay.playContainer} contentContainerStyle={styleglobal.contentContainer}>
-          {added_buttons_goes_here}
-          <TouchableOpacity onPress={() => this._handleAddButton()}>
-              <Text>Click to create a button</Text>
-            </TouchableOpacity>
           <View style={styleglobal.backContainer}>
             <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
               <Text>Back</Text>
             </TouchableOpacity>
-            
           </View>
+          <TouchableOpacity onPress={() => {this.AddButton()}}>
+            <Text>Click to create a button</Text>
+          </TouchableOpacity>
+          {added_buttons}
         </View>
       </View>
     );
