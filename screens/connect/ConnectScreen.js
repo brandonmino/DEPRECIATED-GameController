@@ -6,7 +6,7 @@ export default class ConnectScreen extends React.Component {
   constructor(props) {
     super(props);
 
-    this.useEffect = this.useEffect.bind(this);
+    this.getPermission = this.getPermission.bind(this);
     this.handleBarCodeScanned = this.handleBarCodeScanned.bind(this);
     
     this.state = {
@@ -19,12 +19,10 @@ export default class ConnectScreen extends React.Component {
   }
 
   //Wait for code to be sent
-  useEffect() {
-    async () => {
-      const status = await BarCodeScanner.requestPermissionsAsync();
-      let result = status === 'granted'
-      this.setState({setHasPermission: result});
-    };
+  async getPermission() {
+    const status = await BarCodeScanner.requestPermissionsAsync();
+    let result = status === 'granted'
+    this.setState({setHasPermission: result});
   }
 
   //Try to connect using qr code address (url)
@@ -69,6 +67,8 @@ export default class ConnectScreen extends React.Component {
   }
 
   render() {
+    this.getPermission();
+
     return (
       <View style={{flex: 1, flexDirection: 'column', justifyContent: 'flex-end'}}>
         <BarCodeScanner
