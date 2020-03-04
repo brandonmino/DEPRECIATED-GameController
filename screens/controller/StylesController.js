@@ -1,7 +1,16 @@
 import {StyleSheet} from 'react-native'
 import { vw, vh } from 'react-native-expo-viewport-units';
 
-const styleplay = StyleSheet.create({
+const stylecontroller = StyleSheet.create({
+    createnew: {
+        position: 'absolute',
+        bottom: vh(10),
+        right: vw(5),
+        backgroundColor: '#DCDCDC',
+        borderRadius: 10,
+        padding: vw(1),
+        margin: vw(2.5),
+    },
     playContainer: {
         flex: 1,
         backgroundColor: '#fff',
@@ -67,4 +76,4 @@ const dragPosition = {
     }
 }
 
-export { styleplay, dragPosition };
+export { stylecontroller, dragPosition};

@@ -5,8 +5,8 @@ import Draggable from 'react-native-draggable';
 export class GCbutton extends React.Component{
     constructor (props) {
         super(props);
-        this.toggleDrag = this.toggleDrag.bind(this);
-        this.toggleSelect = this.toggleSelect.bind(this);
+        this.basicPressIn = this.basicPressIn.bind(this);
+        this.basicPressOut = this.basicPressOut.bind(this);
 
         let IP;
         AsyncStorage.getItem('ip', (e, res) => {
@@ -15,61 +15,47 @@ export class GCbutton extends React.Component{
         });
 
         this.state = {
-            status: true, 
-            moveable: this.props.tog,
-            selected: false,
-            sendpress: this.props.playing,
-            style: null
+            status: true,
         };
-
     }
 
     basicPressIn(name) {
-        if (this.state.sendpress == true) {
-            this.setState({status: false});
-            let component = {
-                key : name,
-                state : this.state.status
-            };
-            console.log(component);
-            let settings = {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(component),
-            }
-            fetch(this.IP+"/data_endpoint", settings);
+        this.setState({status: false});
+        let component = {
+            key : name,
+            state : this.state.status
+        };
+        console.log(component);
+        let settings = {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(component),
         }
+        fetch(this.IP+"/data_endpoint", settings);
     };
 
     basicPressOut(name) {
-        if (this.state.sendpress == true) {
-            this.setState({status: true});
-            let component = {
-                key : name,
-                state : this.state.status
-            };
-            console.log(component);
-            let settings = {
-                method: 'POST',
-                mode: 'no-cors',
-                body: JSON.stringify(component),
-            }
-            fetch(this.IP + "/data_endpoint", settings);
-        }  
-    };
-
-    toggleDrag(bool) {
-        this.setState({moveable: bool});
-    };
-
-    toggleSelect(bool) {
-        this.setState({moveable: bool})
+        this.setState({status: true});
+        let component = {
+            key : name,
+            state : this.state.status
+        };
+        console.log(component);
+        let settings = {
+            method: 'POST',
+            mode: 'no-cors',
+            body: JSON.stringify(component),
+        }
+        fetch(this.IP + "/data_endpoint", settings); 
     };
   
     render(){
         return(
-            <Draggable x={this.props.x} y={this.props.y} disabled={this.state.moveable}>
-                <TouchableOpacity style={this.props.style} onPressIn={() => {this.basicPressIn(this.props.btnname)}} onPressOut={() => {this.basicPressOut(this.props.btnname)}}/>
+            <Draggable x={this.props.x} y={this.props.y} disabled={!this.props.editMode}>
+                <TouchableOpacity activeOpacity={this.props.editMode ? 1 : 0.2} 
+                                  style={this.props.style} 
+                                  onPressIn={() => {this.props.editMode ? {} : this.basicPressIn(this.props.btnname)}} 
+                                  onPressOut={() => {this.props.editMode ? {} : this.basicPressOut(this.props.btnname)}}/>
             </Draggable>
         )
     }

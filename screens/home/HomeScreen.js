@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, FlatList, Text, TouchableHighlight, TouchableOpacity, View } from 'react-native';
+import { Image, FlatList, Text, TouchableHighlight, TouchableOpacity, View, AsyncStorage } from 'react-native';
 import { styleglobal } from '../StylesScreen'
 import { stylehome } from './StylesHome'
 
@@ -32,9 +32,15 @@ export default class HomeScreen extends React.Component {
             renderItem={({item}) => (
             <View style={stylehome.listStyle}>
               <View style={stylehome.listTextCon}>
-                <Text style={stylehome.listText} onPress={() => this.props.navigation.navigate('Connect')}>{item.title}</Text>
+                <Text style={stylehome.listText} onPress={async () => {
+                  await AsyncStorage.setItem('editMode', 'false');
+                  await AsyncStorage.setItem('startblank', 'false'); 
+                  this.props.navigation.navigate('Connect')}}>{item.title}</Text>
               </View>
-              <TouchableHighlight style={stylehome.settingLogoCon} onPress={() => this.props.navigation.navigate('Edit')}>
+              <TouchableHighlight style={stylehome.settingLogoCon} onPress={async () => {
+                await AsyncStorage.setItem("editMode", "true");
+                await AsyncStorage.setItem('startblank', 'false'); 
+                this.props.navigation.navigate('Controller')}}>
                 <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>
               </TouchableHighlight>
             </View>
@@ -42,7 +48,10 @@ export default class HomeScreen extends React.Component {
             keyExtractor={item => item.id}
           />
           <View style={stylehome.bottomButtonCon}>
-            <TouchableOpacity style={stylehome.createButton} onPress={() => this.props.navigation.navigate('Create')}>
+            <TouchableOpacity style={stylehome.createButton} onPress={async () => {
+              await AsyncStorage.setItem("editMode", "true");
+              await AsyncStorage.setItem('startblank', 'true');
+              this.props.navigation.navigate('Create')}}>
               <Text>Create</Text>
             </TouchableOpacity>
             <TouchableOpacity style={stylehome.settingsButton} onPress={() => this.props.navigation.navigate('Settings')}>

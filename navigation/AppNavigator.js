@@ -2,9 +2,8 @@ import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 
 import HomeScreen from '../screens/home/HomeScreen';
 import ConnectScreen from '../screens/connect/ConnectScreen';
-import PlayScreen from '../screens/play/PlayScreen';
 import CreateScreen from '../screens/create/CreateScreen';
-import EditScreen from '../screens/edit/EditScreen';
+import ControllerScreen from '../screens/controller/ControllerScreen';
 import SettingsScreen from '../screens/settings/SettingsScreen';
 
 export default createAppContainer(
@@ -12,9 +11,8 @@ export default createAppContainer(
     {
       Home: HomeScreen,
       Connect: ConnectScreen,
-      Play: PlayScreen,
+      Controller: ControllerScreen,
       Create: CreateScreen,
-      Edit: EditScreen,
       Settings: SettingsScreen,
     },
     {

@@ -30,7 +30,7 @@ export default class ConnectScreen extends React.Component {
   //Try to connect using qr code address (url)
   async setupConnection(url) {
     let ip = {'ip': url}
-    AsyncStorage.setItem('ip', JSON.stringify(ip));
+    await AsyncStorage.setItem('ip', JSON.stringify(ip));
     let sts = {status : "Connection attempt"}
     let settings = {
       method: 'POST',
@@ -41,7 +41,7 @@ export default class ConnectScreen extends React.Component {
     let response = await request.json()
     if (response.status == "Connected"){
       console.log("You have successfully connected")
-      this.props.navigation.navigate('Play')
+      this.props.navigation.navigate('Controller')
     }
     else{
       console.log("Connection attempt failed. Try again")
