@@ -27,7 +27,7 @@ export default class CreateScreen extends React.Component {
               onChangeText={(text) => this.setState({text})}
               value={this.state.text}
             />
-            <TouchableOpacity style={stylecreate.enterbtn} onPress={() => this.props.navigation.navigate('Controller')}>
+            <TouchableOpacity style={stylecreate.enterbtn} onPress={() => this.props.navigation.navigate('Controller', this.props.navigation.state.params)}>
               {/* make sure to add conditional to see if the name is nonempty and valid */}
               <Text>Start editing!</Text>
             </TouchableOpacity>

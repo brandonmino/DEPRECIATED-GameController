@@ -26,8 +26,7 @@ function connectText() {
 export default class ConnectScreen extends React.Component {
   componentDidMount () {
     connectText();
-    this.props.navigation.navigate('Controller');
-
+    this.props.navigation.navigate('Controller', this.props.navigation.state.params);
   };
   render() { 
     return (
@@ -39,10 +38,10 @@ export default class ConnectScreen extends React.Component {
             </TouchableOpacity>
           </View>
           <View style={styleglobal.settingsHomeContainer}>
-            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Controller')}>
+            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Controller', this.props.navigation.state.params)}>
             <Text>Connecting to server...</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Controller')}>
+            <TouchableOpacity style={styleglobal.settingsButton} onPress={() => this.props.navigation.navigate('Controller', this.props.navigation.state.params)}>
             </TouchableOpacity>
           </View>
         </ScrollView>
