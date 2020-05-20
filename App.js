@@ -2,6 +2,7 @@ import { AppLoading } from 'expo';
 import { Asset } from 'expo-asset';
 import React, { useState } from 'react';
 import { Platform, StatusBar, StyleSheet, View } from 'react-native';
+import { BarCodeScanner } from 'expo-barcode-scanner';
 
 import AppNavigator from './navigation/AppNavigator';
 
@@ -27,6 +28,7 @@ export default function App(props) {
 }
 
 async function loadResourcesAsync() {
+  await BarCodeScanner.requestPermissionsAsync();
   await Promise.all([
     Asset.loadAsync([
       require('./images/Controller-logo.png'),

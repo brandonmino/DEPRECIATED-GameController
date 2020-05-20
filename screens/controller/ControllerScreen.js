@@ -28,29 +28,32 @@ export default class ControllerScreen extends React.Component {
     this.setController = this.setController.bind(this);
     this.addComponent = this.addComponent.bind(this);
     this.togEdit = this.togEdit.bind(this);
-    
-    this.state = {init: true, mode: null, startblank: null, components: []};
+
+    this.state = {startblank: true, mode: null, components: []};
+
+    this.setMode();
+    this.setController();
   }
   
   async setMode() {
-    await AsyncStorage.getItem('editMode', (err, result) => {
-        this.setState({mode: result == 'true'})
-        this.setState({init: false})
+    await AsyncStorage.getItem('editMode', async (err, result) => {
+        console.log(result)
+        this.state.mode = (result == 'true')
       })
   }
   
   async setController() {
     await AsyncStorage.getItem('startblank', (err, result) => { 
-        this.setState({startblank: result == 'true'})
-        if (this.setState.startblank){
-            this.setState({components: []})
+        this.state.startblank = (result == 'true')
+        if (this.state.startblank){
+            this.state.components = []
         }
         else{
           let dc = [...defaultController];
           for (let i=0; i<dc.length; i++){
             dc[i].editMode = this.state.mode
           }
-          this.setState({components: dc})
+          this.state.components = dc
         }});
   }
 
@@ -70,11 +73,6 @@ export default class ControllerScreen extends React.Component {
   }
 
   render() {
-    if (this.state.init){
-      this.setMode();
-      this.setController();
-    }
-    
     let create_btn = this.state.mode ? 
         (<TouchableOpacity style={stylecontroller.createnew} onPress={() => this.addComponent()}>
            <Text>Create Button!</Text>
@@ -95,12 +93,12 @@ export default class ControllerScreen extends React.Component {
     return (
       <View style={[stylecontroller.playContainer, overflow]}>
         <View style={stylecontroller.playContainer} contentContainerStyle={styleglobal.contentContainer}>
-          {create_btn}
           <View style={styleglobal.backContainer}>
             <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
               <Text>Back</Text>
             </TouchableOpacity>
           </View>
+          {create_btn}
           {added_components}
         </View>
       </View>

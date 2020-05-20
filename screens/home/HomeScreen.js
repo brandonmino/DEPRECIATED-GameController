@@ -33,13 +33,13 @@ export default class HomeScreen extends React.Component {
             <View style={stylehome.listStyle}>
               <View style={stylehome.listTextCon}>
                 <Text style={stylehome.listText} onPress={async () => {
-                  await AsyncStorage.setItem('editMode', 'false');
-                  await AsyncStorage.setItem('startblank', 'false'); 
+                  await AsyncStorage.setItem("editMode", "false");
+                  await AsyncStorage.setItem("startblank", "false"); 
                   this.props.navigation.navigate('Connect')}}>{item.title}</Text>
               </View>
               <TouchableHighlight style={stylehome.settingLogoCon} onPress={async () => {
                 await AsyncStorage.setItem("editMode", "true");
-                await AsyncStorage.setItem('startblank', 'false'); 
+                await AsyncStorage.setItem("startblank", "false"); 
                 this.props.navigation.navigate('Controller')}}>
                 <Image style={stylehome.settingLogo} source={require('../../images/settings_dots.png')}/>
               </TouchableHighlight>
@@ -50,7 +50,7 @@ export default class HomeScreen extends React.Component {
           <View style={stylehome.bottomButtonCon}>
             <TouchableOpacity style={stylehome.createButton} onPress={async () => {
               await AsyncStorage.setItem("editMode", "true");
-              await AsyncStorage.setItem('startblank', 'true');
+              await AsyncStorage.setItem("startblank", "true");
               this.props.navigation.navigate('Create')}}>
               <Text>Create</Text>
             </TouchableOpacity>

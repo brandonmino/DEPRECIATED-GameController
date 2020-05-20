@@ -9,10 +9,12 @@ export class GCbutton extends React.Component{
         this.basicPressOut = this.basicPressOut.bind(this);
 
         let IP;
-        AsyncStorage.getItem('ip', (e, res) => {
-            let temp_json = JSON.parse(res)
-            this.IP = temp_json.ip
-        });
+        if(this.props.editMode === false) {
+            AsyncStorage.getItem('ip', (e, res) => {
+                let temp_json = JSON.parse(res)
+                this.IP = temp_json.ip
+            });
+        }
 
         this.state = {
             status: true,
