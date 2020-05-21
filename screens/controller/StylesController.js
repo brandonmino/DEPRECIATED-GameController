@@ -38,7 +38,18 @@ const stylecontroller = StyleSheet.create({
     },
     CD: {
         backgroundColor: 'green',
-    }
+    },
+    drawerContent: {
+        flex: 1,
+        alignItems: 'center',
+        justifyContent: 'center',
+        backgroundColor: '#F04812',
+    },
+    drawerBox: {
+        flex: 1,
+        backgroundColor: "#38C8EC",
+        padding: 10,
+    },
 });
 
 const dragPosition = {

@@ -1,9 +1,10 @@
 import React from 'react';
-import { AsyncStorage, Text, TouchableOpacity, View} from 'react-native';
+import { AsyncStorage, Text, TouchableHighlight, TouchableOpacity, View} from 'react-native';
 import { styleglobal } from '../StylesScreen';
 import { stylecontroller, dragPosition} from './StylesController';
 import { GCbutton } from '../../components/button';
 import { vw, vh } from 'react-native-expo-viewport-units';
+import MenuDrawer from 'react-native-side-drawer'
 
 const overflow = {
   overflowY: 'hidden',
@@ -29,7 +30,7 @@ export default class ControllerScreen extends React.Component {
     this.addComponent = this.addComponent.bind(this);
     this.togEdit = this.togEdit.bind(this);
 
-    this.state = {startblank: true, mode: null, components: []};
+    this.state = {startblank: null, mode: null, showEditBar: false, components: []};
 
     this.setMode();
     this.setController();
@@ -37,7 +38,6 @@ export default class ControllerScreen extends React.Component {
   
   async setMode() {
     await AsyncStorage.getItem('editMode', async (err, result) => {
-        console.log(result)
         this.state.mode = (result == 'true')
       })
   }
@@ -57,6 +57,18 @@ export default class ControllerScreen extends React.Component {
         }});
   }
 
+  toggleEditBar = () => {
+    this.setState({ showEditBar: !this.state.showEditBar });
+  };
+ 
+  drawerContent = () => {
+    return (
+      <TouchableOpacity onPress={this.toggleEditBar} style={stylecontroller.drawerBox}>
+        <Text>Close</Text>
+      </TouchableOpacity>
+    );
+  };
+
   addComponent() {
     let new_component = {editMode: this.state.mode, style: [stylecontroller.colorButton, stylecontroller.CL], x: vw(20), y: vh(20)};
     this.setState({components: [...this.state.components, new_component]});
@@ -71,6 +83,8 @@ export default class ControllerScreen extends React.Component {
     await AsyncStorage.setItem('editMode', bool)
     this.setState({components: all_com})
   }
+
+
 
   render() {
     let create_btn = this.state.mode ? 
@@ -93,13 +107,25 @@ export default class ControllerScreen extends React.Component {
     return (
       <View style={[stylecontroller.playContainer, overflow]}>
         <View style={stylecontroller.playContainer} contentContainerStyle={styleglobal.contentContainer}>
-          <View style={styleglobal.backContainer}>
-            <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
-              <Text>Back</Text>
-            </TouchableOpacity>
-          </View>
-          {create_btn}
-          {added_components}
+          <MenuDrawer 
+            open={this.state.showEditBar} 
+            drawerContent={this.drawerContent()}
+            drawerPercentage={20}
+            animationTime={250}
+            overlay={true}
+            opacity={0.4}
+          >
+            <View style={styleglobal.backContainer}>
+              <TouchableOpacity style={styleglobal.backButton} onPress={() => this.props.navigation.navigate('Home')}>
+                <Text>Back</Text>
+              </TouchableOpacity>
+              <TouchableOpacity onPress={this.toggleEditBar} style={stylecontroller.drawerContent}>
+                <Text>Open</Text>
+              </TouchableOpacity>
+            </View>
+            {create_btn}
+            {added_components}
+          </MenuDrawer>
         </View>
       </View>
     );
